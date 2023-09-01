@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hivedb_trial/util/task_button.dart';
 
-
-
 class ModalBox extends StatelessWidget {
   final controller;
   VoidCallback onSave;
@@ -19,36 +17,37 @@ class ModalBox extends StatelessWidget {
       title: const Text("Add new task"),
       backgroundColor: Colors.white,
       content: SizedBox(
-          height: 120,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              TextField(
-                style: const TextStyle(fontSize: 20),
-                controller: controller,
-                decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: "Add a new task..."),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
+        height: 120,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            TextField(
+              style: const TextStyle(fontSize: 20),
+              controller: controller,
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: "Add a new task..."),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                TaskButton(
+                  text: "Save",
+                  onPressed: () {
+                  onSave();
+                  },
+                ),
+                const SizedBox(width: 8),
                   TaskButton(
-                    text: "Save",
+                    text: "Cancel",
                     onPressed: () {
-                    onSave();
-                    },
-                    ),
-                  const SizedBox(width: 8),
-                  TaskButton(
-                      text: "Cancel",
-                      onPressed: () {
-                        onCancel();
-                      })
-                ],
-              )
-            ],
-          )),
+                    onCancel();
+                    })
+              ],
+            )
+          ],
+        )
+      ),
     );
   }
 }

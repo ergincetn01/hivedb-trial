@@ -13,11 +13,11 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   Database db = Database();
-
+  late int ancestorId = 0;
   final _controller = TextEditingController();
   final _nestController = TextEditingController();
 
-  late String ancestor=""; 
+  late String ancestor = "";
 
   void createNewTodo() {
     showDialog(
@@ -66,17 +66,21 @@ class _HomePageState extends State<HomePage> {
               });
         });
   }
-void changeAncestor(int i ){
-  setState(() {
-    ancestor=db.todoList[i].title;
-  });
-}
+
+  void changeAncestor(int i) {
+    setState(() {
+      ancestor = db.todoList[i].title;
+    });
+  }
+// void getValues(){
+
+//   db.getValues(j);
+// }
   void saveNestedTodo(int i) {
     setState(() {
       db.todoList.add((BasicTile(
           title: _nestController.text, isDone: false, isChild: true)));
-     
-    }); 
+    });
     _nestController.clear();
     db.updateDb();
     Navigator.pop(context);

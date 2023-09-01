@@ -1,6 +1,3 @@
-import 'dart:ffi';
-
-import 'package:flutter/widgets.dart';
 import 'package:hive/hive.dart';
 
 // @HiveType(typeId: 0)
@@ -16,7 +13,7 @@ import 'package:hive/hive.dart';
 
 @HiveType(typeId: 0)
 class BasicTile {
-  int get id=>0;
+ 
   @HiveField(0)
   final String title;
 
@@ -29,7 +26,6 @@ class BasicTile {
   @HiveField(3)
   BasicTile({required this.title, required this.isDone, required this.isChild});
 }
-
 
 // class BasicTile {
 
