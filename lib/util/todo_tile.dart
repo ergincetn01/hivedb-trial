@@ -5,6 +5,7 @@ class TodoTile extends StatelessWidget {
   final String taskName;
   final bool isCompleted;
   final bool isChild;
+  final String childOf;
   VoidCallback createChild;
   final Function(bool?)? onChanged;
   final Function(BuildContext)? deleteTask;
@@ -12,6 +13,7 @@ class TodoTile extends StatelessWidget {
     super.key,
     required this.taskName,
     required this.isChild,
+    required this.childOf,
     required this.createChild,
     required this.isCompleted,
     required this.onChanged,
@@ -52,6 +54,7 @@ class TodoTile extends StatelessWidget {
                         ? TextDecoration.lineThrough
                         : TextDecoration.none),
               ),
+              subtitle: isChild ? Text("i am child of $childOf"): null,
               trailing: isChild
                   ? null
                   : IconButton(
