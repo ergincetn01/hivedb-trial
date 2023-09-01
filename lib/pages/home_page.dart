@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
   final _controller = TextEditingController();
   final _nestController = TextEditingController();
 
-  late String ancestor; 
+  late String ancestor=""; 
 
   void createNewTodo() {
     showDialog(
